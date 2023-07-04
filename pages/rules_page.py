@@ -6,9 +6,9 @@ from pages.base_page import BasePage
 
 class RulesPage(BasePage):
     RULES_PAGE = (By.XPATH, '//p[text() = "When to Trigger?"]')
-    PAGE_RULES_BTN = (By.XPATH, '//a/div')
-    RULE_DROPBOX = (By.ID, 'conditionList0')
-    PAGE_TYPE_OPTION = (By.CSS_SELECTOR, '.conditionList0-page-type')
+    PAGE_RULES_BTN = (By.XPATH, '//p[contains(text(), "Page Rules")]')
+    RULE_DROPBOX = (By.ID, 'conditionList0') #[id*='conditionList']
+    PAGE_TYPE_OPTION = (By.CSS_SELECTOR, '.conditionList0-page-type') #[class*='page-type']
     PAGE_TYPE_DROPBOX = (By.ID, 'qa-drop-down')
     HOMEPAGE_OPTION = (By.CSS_SELECTOR, '.qa-drop-down-homepage')
     SAVE_AND_CONTINUE_BTN = (By.ID, 'save-and-next')
