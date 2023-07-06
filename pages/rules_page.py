@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 
 from pages.base_page import BasePage
+from pages.design_page import DesignPage
 
 
 class RulesPage(BasePage):
@@ -33,3 +34,5 @@ class RulesPage(BasePage):
 
     def click_save_and_continue(self):
         self.click_element(*self.SAVE_AND_CONTINUE_BTN)
+
+        return DesignPage(self.driver)
