@@ -28,7 +28,7 @@ class DesignPage(BasePage):
         self.click_element(*self.OK_BTN)
 
     def click_insert_after_element(self):
-        with self.switch_frame(*self.IFRAME):
+        with self.switch_frame(self.IFRAME):
             self.click_element(*self.TOP_HEADER)
         self.click_element(*self.INSERT_AFTER_THE_ELEMENT)
 
