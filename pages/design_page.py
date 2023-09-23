@@ -9,7 +9,7 @@ class DesignPage(BasePage):
     ADD_NEW_VAR_BTN = (By.ID, 'add-new-variation')
     SELECT_BTN = (By.CLASS_NAME, 'btn-select')
     OK_BTN = (By.LINK_TEXT, 'OK')
-    IFRAME = (By.ID, 'ins-skeleton-partner-iframe')
+    IFRAME = (By.ID, 'ins-skeleton-iframe-container')
     TOP_HEADER = (By.ID, "sticky-header-sticky-wrapper")
     INSERT_AFTER_THE_ELEMENT = (By.XPATH, "//li[text() = 'Insert after the element']")
     SAVE_BTN = (By.ID, 'save')
@@ -28,9 +28,9 @@ class DesignPage(BasePage):
         self.click_element(*self.OK_BTN)
 
     def click_insert_after_element(self):
-        self.switch_to_iframe(self.IFRAME)
-        self.click_element(*self.TOP_HEADER)
-        self.click_element(*self.INSERT_AFTER_THE_ELEMENT)
+        with self.switch_frame(*self.IFRAME):
+            self.wait_and_click_to_element(*self.TOP_HEADER)
+        self.wait_and_click_to_element(*self.INSERT_AFTER_THE_ELEMENT)
 
     def click_save_button(self):
         self.click_element(*self.SAVE_BTN)
