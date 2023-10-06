@@ -20,10 +20,10 @@ class BasePage(object):
     def send_text(self, text, *locator):
         self.find_element(*locator).send_keys(text)
 
-    def wait_element(self, *locator):
+    def wait_element(self, locator):
         self.wait.until(ec.visibility_of_element_located(locator))
 
-    def wait_and_click_to_element(self, *locator, message=''):
+    def wait_and_click_to_element(self, locator, message=''):
         self.wait.until(ec.element_to_be_clickable(locator), message).click()
 
     class SwitchFrame:
@@ -37,5 +37,5 @@ class BasePage(object):
         def __exit__(self, type, value, traceback):
             self.driver.switch_to.parent_frame()
 
-    def switch_frame(self, *locator):
+    def switch_frame(self, locator):
         return self.SwitchFrame(self.driver, self.wait_element(locator))
