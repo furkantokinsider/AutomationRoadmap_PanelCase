@@ -28,10 +28,13 @@ class DesignPage(BasePage):
         self.click_element(*self.OK_BTN)
 
     def click_insert_after_element(self):
-        with self.switch_frame(self.IFRAME):
-            self.wait_and_click_to_element(self.TOP_HEADER)
-            self.wait_and_click_to_element(self.INSERT_AFTER_THE_ELEMENT)
-        return self
+        self.frame_switch(*self.IFRAME)
+        self.find_element(*self.TOP_HEADER).click()
+        self.driver.switch_to.default_content()
+        self.wait_and_click_to_element(self.INSERT_AFTER_THE_ELEMENT, "12312312")
 
     def click_save_button(self):
-        self.click_element(*self.SAVE_BTN)
+        self.wait_and_click_to_element(self.SAVE_BTN, "")
+
+    def click_save_and_continue_button(self):
+        self.wait_and_click_to_element(self.SAVE_AND_CONTINUE_BTN, "")

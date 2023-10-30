@@ -37,5 +37,5 @@ class BasePage(object):
         def __exit__(self, type, value, traceback):
             self.driver.switch_to.parent_frame()
 
-    def switch_frame(self, locator):
-        return self.SwitchFrame(self.driver, self.wait_element(locator))
+    def frame_switch(self, *locator):
+        self.driver.switch_to.frame(self.driver.find_element(*locator))

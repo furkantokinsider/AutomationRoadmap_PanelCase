@@ -7,7 +7,7 @@ from pages.login_page import LoginPage
 class MyTestCase(BaseTest):
     email = 'furkan.tok@useinsider.com'
     password = 'cidXPkrci4.qeEc'
-    campaign_name = 'Furkan OPT_automation59'
+    campaign_name = 'Furkan OPT_automation99'
 
     def test_check_create_instory_campaign(self):
         login_page = LoginPage(self.driver)
@@ -42,6 +42,7 @@ class MyTestCase(BaseTest):
         design_page.click_ok_button()
         design_page.click_insert_after_element()
         design_page.click_save_button()
+        design_page.click_save_and_continue_button()
 
 
 
